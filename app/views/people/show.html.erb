@@ -10,6 +10,7 @@
   <%= @person.last_name %>
 </p>
 
+<strong>Phone numbers:</strong>
 <ul>
   <% @person.phone_numbers.each do |phone| %>
     <li><%= phone.number %> <%= link_to('edit', edit_phone_number_path(phone)) %>
@@ -17,6 +18,7 @@
   <% end %>
 </ul>
 
+<strong>Email addresses:</strong>
 <ul>
   <% @person.email_addresses.each do |email| %>
     <li><%= email.address %> <%= link_to('edit', edit_email_address_path(email)) %>
