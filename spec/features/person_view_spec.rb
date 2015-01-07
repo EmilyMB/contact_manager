@@ -20,6 +20,14 @@ describe 'the person view', type: :feature do
     it 'has a link to add a new email address' do
       expect(page).to have_link("Add email address", href: new_email_address_path(person_id: person.id))
     end
+
+    it 'adds a new email address' do
+      page.click_link("Add email address")
+      page.fill_in("Address", with: "bob@bob3.com")
+      page.click_button("Create Email address")
+      expect(current_path).to eq(person_path(person))
+      expect(page).to have_content("bob@bob3.com")
+    end
   end
 
   describe 'view of phone numbers' do
