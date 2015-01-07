@@ -51,7 +51,6 @@ RSpec.describe PhoneNumbersController, :type => :controller do
     describe "with valid params" do
 
       let(:alice) { Person.create(first_name: "Alice", last_name: "Smith")}
-
       let(:valid_attributes) {{ number: '555-9999', person_id: alice.id}}
 
       it "creates a new PhoneNumber" do
