@@ -14,7 +14,7 @@ class EmailAddressesController < ApplicationController
 
   # GET /email_addresses/new
   def new
-    @email_address = EmailAddress.new(contact_id: params[:contact_id], contact_type: params[:contact_type])
+    @email_address = EmailAddress.new(person_id: params[:person_id])
   end
 
   # GET /email_addresses/1/edit
@@ -70,6 +70,6 @@ class EmailAddressesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def email_address_params
-      params.require(:email_address).permit(:address, :contact_id, :contact_type)
+      params.require(:email_address).permit(:address, :person_id)
     end
 end
