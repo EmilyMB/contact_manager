@@ -18,7 +18,7 @@ describe 'the person view', type: :feature do
     end
 
     it 'has a link to add a new email address' do
-      expect(page).to have_link("Add email address", href: new_email_address_path(person_id: person.id))
+      expect(page).to have_link("Add email address", href: new_email_address_path(contact_id: person.id, contact_type: "Person"))
     end
 
     it 'adds a new email address' do
@@ -57,8 +57,8 @@ describe 'the person view', type: :feature do
     let(:person) { Person.create(first_name: 'John', last_name: 'Doe')}
 
     before(:each) do
-      person.phone_numbers.create(number: "554-1234")
-      person.phone_numbers.create(number: "555-1245")
+      person.phone_numbers.create(number: "554-1234", contact_type: "Person")
+      person.phone_numbers.create(number: "555-1245", contact_type: "Person")
       visit person_path(person)
     end
 
@@ -69,7 +69,7 @@ describe 'the person view', type: :feature do
     end
 
     it 'has a link to add a new phone number' do
-      expect(page).to have_link("Add phone number", href: new_phone_number_path(person_id: person.id))
+      expect(page).to have_link("Add phone number", href: new_phone_number_path(contact_id: person.id, contact_type: "Person"))
     end
 
     it 'adds a new phone number' do
