@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'the person view', type: :feature do
 
-  describe 'view of email addresses' do
+  describe 'email addresses' do
     let(:person) { Person.create(first_name: 'John', last_name: 'Doe')}
 
     before(:each) do
@@ -53,7 +53,7 @@ describe 'the person view', type: :feature do
     end
   end
 
-  describe 'view of phone numbers' do
+  describe 'phone numbers' do
     let(:person) { Person.create(first_name: 'John', last_name: 'Doe')}
 
     before(:each) do
