@@ -3,8 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,11 +11,12 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= person.first_name %></td>
-        <td><%= person.last_name %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= person.first_name %> <%= person.last_name %></td>
+        <td>
+          <ul><%= link_to 'Show', person %></ul>
+          <ul><%= link_to 'Edit', edit_person_path(person) %></ul>
+          <ul><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></ul>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Person', new_person_path %>
+<p id="new_person"><%= link_to 'New Person', new_person_path %></p>
